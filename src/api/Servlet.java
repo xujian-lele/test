@@ -3,12 +3,7 @@ package api;
 import java.io.IOException;
 
 import sun.net.httpserver.HttpServerImpl;
+//学习servlet的用法
 
-public class Servlet extends HttpServerImpl {
-
-	Servlet() throws IOException {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-
-}
+//public class Servlet extends HttpServerImpl {
+//}

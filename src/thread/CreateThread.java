@@ -15,5 +15,4 @@ public class CreateThread implements Runnable{
 			test.run();
 		}
 	}
-
 }
