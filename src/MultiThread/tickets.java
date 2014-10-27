@@ -33,6 +33,5 @@ public class tickets implements Runnable{
 		t2.start();
 		t3.start();		
 	}
-	
 
 }

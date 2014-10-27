@@ -1,4 +1,4 @@
-package thread;
+package threadCreate;
 
 public class CreateThread implements Runnable{
 

@@ -21,9 +21,7 @@ public class UpdateData {
 		
 //		s.addAll(s1);
 		s.addAll(l);
-		
 		System.out.println(s);
-		
 	}
 
 }
