@@ -1,53 +1,63 @@
 package MultiThread2;
 
-import java.util.concurrent.LinkedBlockingQueue;
+import java.util.LinkedList;
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class Storage2 {
+	//容量
+	int SIZE_NUM = 100;
+	//
+	public LinkedList<Object> list = new LinkedList<Object>();
+	//
+	public Lock lock = new ReentrantLock();
+	//
+	public Condition full = lock.newCondition();
+	//
+	public Condition empty = lock.newCondition();
 	
-	private LinkedBlockingQueue<Object> list = new LinkedBlockingQueue<Object>(100);
-	//仓库容量
-	private int SIZE_NUM = 100;
-	//produce
-	public void Producer(int num){
-		if(list.size() + num > SIZE_NUM)
-		{
-            System.out.println("【要生产的产品数量】:" + num + "/t【库存量】:" + list.size()  
-                    + "/t暂时不能执行生产任务!"); 
-            }else{
-            	for(int i=1;i<=num;i++){
-            		try {
-						list.put(new Object());
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-            	}
-                System.out.println("【已经生产产品数】:" + num + "/t【现仓储量为】:" + list.size());  
-            }
-	}
-	
-	//consume
-	public void Consumer(int num){
-		if(list.size()<num){
-            System.out.println("【要消费的产品数量】:" + num + "/t【库存量】:" + list.size()  
-                    + "/t暂时不能执行消费任务!");  
-		}else{
+	public void produce(int num){
+		lock.lock();
+		while(list.size()+num>SIZE_NUM){
+			System.out.println("仓满");
 			try {
-				for(int i=1;i<=num;i++)
-				list.take();
+				full.await();
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-            System.out.println("【已经消费产品数】:" + num + "/t【现仓储量为】:" + list.size());  
 		}
+		
+		//当不阻塞的时候继续执行
+		for(int i=0;i<num;i++){
+			list.add(new Object());
+		}
+		System.out.println("生产："+num+";库存："+list.size());
+		
+		full.signal();
+		lock.unlock();
 	}
 	
-	public LinkedBlockingQueue<Object> getList() {
-		return list;
-	}
-	public void setList(LinkedBlockingQueue<Object> list) {
-		this.list = list;
-	}
+	
+	public void consume(int num){
 
+		lock.lock();
+		while(list.size()<num){
+			System.out.println("仓不够");
+			try {
+				empty.await();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
+		//当不阻塞的时候继续执行
+		for(int i=0;i<num;i++){
+			list.remove();
+		}
+		System.out.println("消费："+num+";库存："+list.size());
+		
+		empty.signal();
+		lock.unlock();
+	}
 }

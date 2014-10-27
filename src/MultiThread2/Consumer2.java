@@ -7,7 +7,7 @@ public class Consumer2 extends Thread{
 	
 	public void run(){
 		while(true){
-			storage.Consumer(num);		
+			storage.consume(num);		
 		}
 	}
 

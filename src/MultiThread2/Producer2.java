@@ -12,7 +12,7 @@ public class Producer2 extends Thread{
 	
 	public void run(){
 		while(true){
-			storage.Producer(num);
+			storage.produce(num);
 		}
 	}
 

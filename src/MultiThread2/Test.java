@@ -2,7 +2,7 @@ package MultiThread2;
 
 public class Test  
 {  
-    public void test1()  
+    public static void test1()  
     {  
         // 仓库对象  
         Storage storage = new Storage();  
@@ -67,6 +67,6 @@ public class Test
 
     }
     public static void main(String[] args){
-    	test2();
+    	test1();
     }
 }  
