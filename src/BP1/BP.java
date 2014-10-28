@@ -1,4 +1,4 @@
-package BP;
+package BP1;
 
 public class BP {
 
