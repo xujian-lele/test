@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="java/main/" kind="src" path="test"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/IBM_ADMIN/Desktop/ik-analyzer-3.2.8.jar"/>
 	<classpathentry kind="lib" path="C:/Users/IBM_ADMIN/Desktop/work/BlueAnalyzer-1.0-jdk1.6.jar"/>
 	<classpathentry kind="lib" path="C:/Users/IBM_ADMIN/Desktop/junitperf-1.9.1.jar"/>
