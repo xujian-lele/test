@@ -10,7 +10,7 @@ public class ZeroOrOne {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd	HH:mm:ss");
 		String start = sdf.format(new Date());
 		System.out.println("正在训练....");
-		while(bp.optErrSum==0 || bp.optErrSum>0.000000001){
+		while(bp.optErrSum==0 || bp.optErrSum>0.00000001){
 			
 			for(float i=0;i<0.4;i=(float) (i+0.001)){
 				double[] trainData = new double[1];
@@ -55,8 +55,7 @@ public class ZeroOrOne {
 			
 			if(Math.abs(result[0])<0.5){
 				System.out.println(result[0]+"	该数是0");
-			}
-			
+			}	
 			else 
 				System.out.println(result[0]+"	该数是1");
 		}
