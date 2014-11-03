@@ -27,14 +27,14 @@ public class BST_Builder implements TreeBuilder{
 			return true;
 		}
 		if(key < root.value){
-			if(root.getRightChild() == null){
+			if(root.getLeftChild() == null){
 				Node node = new Node(key);
 				root.setLeftChild(node);
 				return true;
 			}else{
 				insertNode(root.getLeftChild(), key);
 			}
-		}else if(root.value < key){
+		}else if(root.value <= key){
 			if(root.getRightChild() == null){
 				Node node = new Node(key);
 				root.setRightChild(node);;
