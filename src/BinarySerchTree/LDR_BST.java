@@ -18,5 +18,4 @@ public class LDR_BST {
 		}
 		return true;
 	}
-
 }

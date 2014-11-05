@@ -40,7 +40,4 @@ public class Operators {
 			return false;
 		}
 	}
-	
-	
-
 }
