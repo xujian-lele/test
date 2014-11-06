@@ -14,7 +14,7 @@ public class Sort_Test {
 	/**
 	 * @param n 未处理的个数
 	 * @param m 当前背包剩余容量
-	 * @param array 背包中问题
+	 * @param array 背包中的东西
 	 */
 	public static void process(int n, int m, int[] array, int index){
 		if(m == 0){
