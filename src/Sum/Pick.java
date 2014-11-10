@@ -4,9 +4,6 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashSet;
-import java.util.Set;
-
-import com.sun.corba.se.spi.orbutil.fsm.Guard.Result;
 
 /**
  * 有序数组1到n,将所有的数分成两个集合，使得两个集合的和相等，输出所有的这种情况。
