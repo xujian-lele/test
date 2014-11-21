@@ -1,7 +1,7 @@
 /**
  * 
  */
-package Sort;
+package HeapSort;
 
 import java.util.LinkedList;
 import java.util.List;

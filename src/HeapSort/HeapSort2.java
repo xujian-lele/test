@@ -1,7 +1,7 @@
 /**
  * 
  */
-package Sort;
+package HeapSort;
 
 
 /**
