@@ -12,44 +12,26 @@ public class StraightInsertionSort {
 	public static void Sort(int[] array){
 		if(array.length <= 1) return;
 		for(int i=1; i<array.length; i++){
-			int newplace = findReplace(array,i);
-			insertItem(array,i,newplace);
+			insert(array, i);
 		}
 	}
 
 	/**
-	 * 将array[itemPlace]插入到array[newplace]
-	 * @param array
-	 * @param itemPlace
-	 * @param newplace
-	 */
-	private static void insertItem(int[] array, int itemPlace, int newplace) {
-		if(newplace == -1) return ;
-		int item = array[itemPlace];
-		for(int i=itemPlace;i>=newplace+1;i--){
-			array[i] = array[i-1];
-		}
-		
-		array[newplace] = item;
-	}
-
-	/**
-	 * 找到array[itemPlace]的插入位置
+	 * 找到array[itemPlace]的插入位置,并执行插入操作
 	 * @param array
 	 * @param itemPlace
 	 * @return
 	 */
-	private static int findReplace(int[] array, int itemPlace) {
-		int newplace = -1;
-		if(array[itemPlace] >= array[0]) return 0;
-		if(itemPlace <= 0) return newplace;//不进行移动
-		for(int i=itemPlace-1 ; i>=0; i--){
-			if(array[itemPlace] <= array[i]){
-				newplace = i+1;
+	private static void insert(int[] array, int itemPlace) {
+		int sortItem = array[itemPlace];
+		for(int i=itemPlace-1 ; i>=-1; i--){
+			if(i == -1 || sortItem <= array[i]){
+				array[i+1] = sortItem;
 				break;
+			}else{
+				array[i+1] = array[i];
 			}
 		}
-		return newplace;
 	}
 	
 	/**
@@ -86,6 +68,5 @@ public class StraightInsertionSort {
 		printArray(array, size);
 		Sort(array);
 		printArray(array, size);
-		
 	}
 }
