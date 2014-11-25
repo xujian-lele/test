@@ -46,7 +46,7 @@ public class ShellSort {
 		
 		if(newPlace != itemPlace - stepLength){
 			array[newPlace + stepLength] = item;
-			SortUtil.INSTANCE.printArray(array, array.length);
+//			SortUtil.INSTANCE.printArray(array, array.length);
 		}
 	}
 	
