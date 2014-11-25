@@ -4,7 +4,6 @@ import SortCommon.SortUtil;
 
 /**
  * 归并排序的非递归实方法
- * @author xujian
  * 思路：以长度为2^n（n=0,1,2,3...）对数组进行（int）log2（length） + 1趟归并排序
  */
 public class NonRecursion {
