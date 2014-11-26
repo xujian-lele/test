@@ -1,7 +1,9 @@
+package SubstringMatch;
 import SortCommon.SortUtil;
 
 /**
  * 实现KMP算法来实现字符串匹配的工作
+ * 当字符串中含有较多的
  * @author xujian
  *
  */
