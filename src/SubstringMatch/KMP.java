@@ -40,15 +40,17 @@ public class KMP {
 	public static void getNext(String pattern, int[] next){
 		if(pattern == null || pattern.length() == 0)return ;
 		//前面两个元素-1,0
-		for(int i=0;i<next.length && i<2;i++){
-			next[i] = i-1;
-		}
-		
-		for(int i=0,j=-1;i<pattern.length();){
-			if(j == -1 || pattern.charAt(j) == pattern.charAt(i)){
+		for(int i=-1,j=-2;i<pattern.length();){
+			if(j <= -1 || pattern.charAt(j) == pattern.charAt(i)){
 				i++;
 				j++;
-				if(i < pattern.length())next[i] = j;
+				if(i < pattern.length()){
+					if(i == 0){
+						next[i] = -1;
+					}else{
+						next[i] = j;
+					}
+				}
 			}else{
 				j = next[j];
 			}
