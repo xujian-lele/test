@@ -53,8 +53,12 @@ public class Pick {
 			process(n-1, sum1, sum2, array1, array2, index1, index2);
 		}
 	}
+
+	public static int add(int x, int y){
+		return (x+y);
+	}
 	
-	public static void main(String[] args){
+	public static void main(String[] args) {
 		System.out.println("请输入一个大于0的整数： ");
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		String input = null;
